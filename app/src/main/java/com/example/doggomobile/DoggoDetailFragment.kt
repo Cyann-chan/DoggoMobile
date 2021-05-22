@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.findNavController
 
 class DoggoDetailFragment : Fragment() {
@@ -23,7 +22,7 @@ class DoggoDetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         view.findViewById<Button>(R.id.button_third).setOnClickListener {
-            findNavController().navigate(R.id.navigateToDoggoListFragment)
+            findNavController().navigate(R.id.returnToDoggoListFragment)
         }
     }
     }
