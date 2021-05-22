@@ -1,5 +1,5 @@
 package com.example.doggomobile.api
 
-data class DoggoResponse(
+data class DoggoListResponse(
     val name: String
 )
