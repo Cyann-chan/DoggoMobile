@@ -6,9 +6,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.doggomobile.R
-import com.example.doggomobile.api.DoggoResponse
+import com.example.doggomobile.api.DoggoListResponse
 
-class DoggoAdapter(private var dataSet: List<DoggoResponse>, var listener: ((Int) -> Unit)? = null) : RecyclerView.Adapter<DoggoAdapter.ViewHolder>() {
+class DoggoAdapter(private var dataSet: List<DoggoListResponse>, var listener: ((DoggoListResponse) -> Unit)? = null) : RecyclerView.Adapter<DoggoAdapter.ViewHolder>() {
 
     /**
      * Provide a reference to the type of views that you are using
@@ -26,7 +26,7 @@ class DoggoAdapter(private var dataSet: List<DoggoResponse>, var listener: ((Int
         }
     }
 
-    fun updateList(list: List<DoggoResponse>){
+    fun updateList(list: List<DoggoListResponse>){
         dataSet = list
         notifyDataSetChanged()
 
@@ -46,10 +46,10 @@ class DoggoAdapter(private var dataSet: List<DoggoResponse>, var listener: ((Int
 
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
-         val doggo : DoggoResponse = dataSet[position]
+         val doggo : DoggoListResponse = dataSet[position]
         viewHolder.textView.text = doggo.name
         viewHolder.itemView.setOnClickListener{
-            listener?.invoke(position)
+            listener?.invoke(doggo)
         }
     }
 

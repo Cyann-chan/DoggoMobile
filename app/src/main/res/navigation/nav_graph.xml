@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/DoggoHome">
+
+    <fragment
+        android:id="@+id/DoggoHome"
+        android:name="com.example.doggomobile.FirstFragment"
+        android:label="@string/first_fragment_label"
+        tools:layout="@layout/fragment_first">
+
+        <action
+            android:id="@+id/navigateToDoggoListFragment"
+            app:destination="@id/DoggoListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/DoggoListFragment"
+        android:name="com.example.doggomobile.list.DoggoListFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_doggo_list">
+
+        <action
+            android:id="@+id/navigateToDoggoDetailFragment"
+            app:destination="@id/DoggoDetailFragment">
+        <argument
+            android:name="DoggoArg"
+            app:argType="String"
+            android:defaultValue="@null" />
+        </action>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/DoggoDetailFragment"
+        android:name="com.example.doggomobile.DoggoDetailFragment"
+        android:label="Third Fragment"
+        tools:layout="@layout/fragment_doggo_detail">
+
+        <action
+            android:id="@+id/returnToDoggoListFragment"
+            app:destination="@id/DoggoListFragment" />
+    </fragment>
+</navigation>
